@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title> Sound Maker </title>
+
+    <style>
+
+        html {
+            display:table; 
+            width:100%;
+        }
+
+        body {
+            background-color: rgb(113, 200, 130);
+            display: table-cell; 
+            text-align: center; 
+            vertical-align:middle;
+        }
+        
+       
+
+        .magic{
+            width: 800px;
+        }
+
+        .rainbow {
+            background-image: -webkit-gradient( linear, left top, right top, color-stop(0.25, #f2f), color-stop(0.4, #22f), color-stop(0.55, rgb(3, 206, 206)), color-stop(0.7, rgb(2, 202, 2)), color-stop(0.85, rgb(252, 195, 7)), color-stop(1, #f22));
+            background-image: gradient( linear, left top, right top, color-stop(0.25, #f2f), color-stop(0.4, #22f), color-stop(0.55, rgb(3, 206, 206)), color-stop(0.7, rgb(2, 202, 2)), color-stop(0.85, rgb(252, 195, 7)), color-stop(1, #f22) );
+            color:transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            font-family: verdana;
+        }
+
+        .pew img {
+            width: 100px;
+        }
+        .pew img:hover {
+            box-shadow: 0 0 2px 1px black;
+        }
+    </style>
+
+    <script>
+        function sound(f, t) { 
+            var ac = new (window.AudioContext || window.webkitAudioContext)();
+            // create Oscillator node
+            var o = ac.createOscillator();
+
+            // set the sound type: sine, sqaure, triangle, sawtooth
+            o.type = 'triangle';
+            // set the sound frequency
+            o.frequency.setValueAtTime(f, ac.currentTime);
+            o.connect(ac.destination);
+            o.start();
+            // stop after t seconds
+            o.stop(ac.currentTime + t);
+        }
+    </script>
+</head>
+    
+<body>
+    <img class="magic" src="mm.gif" alt="MUSIC">
+    <br/>
+
+    <h1 class="rainbow">PRESS ANY BUTTON</h1>
+    <br/>
+
+    <div class="pew">
+        <img src="1.png" alt="1" onclick="sound(261.6, 0.3)"/>
+        <img src="2.png" alt="2" onclick="sound(277.2, 0.3)"/>
+        <img src="1.png" alt="1" onclick="sound(293.7, 0.3)"/>
+        <img src="2.png" alt="2" onclick="sound(311.1, 0.3)"/>
+        <img src="1.png" alt="1" onclick="sound(329.6, 0.3)"/>
+        <img src="1.png" alt="1" onclick="sound(349.2, 0.3)"/>
+        <img src="2.png" alt="2" onclick="sound(370.0, 0.3)"/>
+        <img src="1.png" alt="1" onclick="sound(392.0, 0.3)"/>
+        <img src="2.png" alt="2" onclick="sound(415.3, 0.3)"/>
+        <img src="1.png" alt="1" onclick="sound(440.0, 0.3)"/>
+        <img src="2.png" alt="2" onclick="sound(466.2, 0.3)"/>
+        <img src="1.png" alt="1" onclick="sound(493.9, 0.3)"/>
+    </div>
+    <br/>
+    
+
+</body>
+</html>
